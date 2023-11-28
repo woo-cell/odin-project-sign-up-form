@@ -1,14 +1,17 @@
 const pass = document.getElementById("password");
 const confirmation = document.getElementById("confirm-password");
 const match = document.getElementById("match");
+const button = document.getElementById("submit");
 
 confirmation.addEventListener("input",compare);
 function compare(e) {
     if (String(e.target.value)!=String(pass.value)) {
         match.textContent = "Passwords don't match";
-        console.log("non");
+        match.style.cssText = "color: red;"
+        button.disabled = true;
     } else if (String(e.target.value)===String(pass.value)) {
         match.textContent = "Passwords match";
-        console.log("oui");
+        match.style.cssText = "color: white;"
+        button.disabled = false;
     }
 }

@@ -22,7 +22,7 @@
         </div>
         <div class="form-container">
             <p>Sign-up to make your dreams come true.</p>
-            <form action="#" method="post">
+            <form action="#" method="">
                 <h3>Get started</h3>
                 <div class="name">
                     <label for="f-name" aria-label="first-name">First Name (min. 3 characters)
@@ -42,10 +42,10 @@
                 </div>
                 <div class="password">
                     <label for="password">Password<input type="password" id="password" pattern="(?=.*\d)(?=.*[\W_]).{8,}" required> Password should be at least 8 characters.</br> It should contain at least one special character and one number</label>
-                    <label for="confirm-password">Confirm Password<input type="password" id="confirm-password" pattern="(?=.*\d)(?=.*[\W_]).{8,}" required></label>
+                    <label for="confirm-password">Confirm Password<input type="password" id="confirm-password" required></label>
                     <p id="match"></p>
                 </div>
-                <button type="submit" class="submit-button">Sign-Up</button>
+                <button type="submit" class="submit-button" id="submit">Sign-Up</button>
                 <div class="log-in">
                     <p>Already have an account? <a href="#">Log in</a></p>
                 </div>
