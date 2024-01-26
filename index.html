@@ -1,58 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign-Up Now</title>
-    <link rel="shortcut icon" href="./images/favicon/Web/icons8-w-key-color-96.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="./styles.css">
-    <script src="./script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up Now</title>
+  <script src="./script.js" defer></script>
+  <link rel="shortcut icon" href="./images/favicon/Web/icons8-w-key-color-32.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-    <div class="main-container">
-        <div class="image-container">
-            <div class="logo-container">
-                <span class="material-symbols-outlined">raven</span>
-                <h1>Yume</h1>
-            </div>
-            <div class="image-copyright">
-                <p>Photo by <a href="https://unsplash.com/@usgs?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">USGS</a> on <a href="https://unsplash.com/photos/a-red-blue-and-green-fluid-painting-on-a-black-background-hoS3dzgpHzw?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-                </p>
-                
-            </div>
-        </div>
-        <div class="form-container">
-            <p>Sign-up to make your dreams come true.</p>
-            <form action="#" method="">
-                <h3>Get started</h3>
-                <div class="name">
-                    <label for="f-name" aria-label="first-name">First Name (min. 3 characters)
-                        <input type="text" id="f-name" minlength="3" placeholder="Your First Name" required>
-                    </label>
-                    <label for="l-name" aria-label="last-name">Last Name (min. 3 characters)
-                        <input type="text" id="l-name" minlength="3" placeholder="Your Last Name" required>
-                    </label>
-                </div>
-                <div class="coord">
-                    <label for="email">Email (example@mail.com)
-                        <input type="email" id="email" placeholder="example@mail.com" required>
-                    </label>
-                    <label for="phone-number">Phone Number (10 digits)
-                        <input type="tel" pattern="[0-9]{10}" id="phone-number" placeholder="10 digits number" required>
-                    </label>
-                </div>
-                <div class="password">
-                    <label for="password">Password<input type="password" id="password" pattern="(?=.*\d)(?=.*[\W_]).{8,}" required> Password should be at least 8 characters.</br> It should contain at least one special character and one number</label>
-                    <label for="confirm-password">Confirm Password<input type="password" id="confirm-password" required></label>
-                    <p id="match"></p>
-                </div>
-                <button type="submit" class="submit-button" id="submit">Sign-Up</button>
-                <div class="log-in">
-                    <p>Already have an account? <a href="#">Log in</a></p>
-                </div>
-            </form>
-        </div>
+  <div class="main-container">
+    <div class="image-container">
+      <div class="logo-container">
+        <h1 class="kanji">夢</h1>
+        <h1 class="title">Yume</h1>
+      </div>
+      <div class="quote-container">
+        <p class="quote">
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit veritatis aliquam hic illo, sunt nemo vero earum, alias sed placeat, sapiente molestiae mollitia? Magnam sit modi pariatur dolore obcaecati libero."
+        </p>
+        <p class="quotee">
+          - Some wise dude
+        </p>
+      </div>
     </div>
+    <div class="form-container">
+      <form action="" id="form">
+        <div class="names-container">
+          <label for="first-name">Enter your first name
+            <input type="text" name="first-name" id="first-name" placeholder="First Name" minlength="3" />
+            <p id="first-name-error" class="error"></p>
+          </label>
+          <label for="last-name">Enter your last name
+            <input type="text" name="last-name" id="last-name" placeholder="Last Name" minlength="3" />
+            <p id="last-name-error" class="error"></p>
+          </label>
+        </div>
+        <div class="coords-container">
+          <label for="email">Enter your mail address
+            <input type="email" name="email" id="email" placeholder="ex: your@mail.com" />
+            <p id="email-error" class="error"></p>
+          </label>
+          <label for="phone">Enter your phone number
+            <input type="tel" name="phone" pattern="[0-9]{10}" id="phone" placeholder="10 digits number" />
+            <p id="phone-format-error" class="error"></p>
+            <p id="phone-length-error" class="error"></p>
+          </label>
+        </div>
+        <div class="pass-container">
+          <label for="password">Password
+            <input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[\W_]).{8,}" />
+            <p id="pass-length-error" class="error"></p>
+            <p id="pass-num-error" class="error"></p>
+            <p id="pass-special-error" class="error"></p>
+          </label>
+          <label for="confirm-password">Confirm password
+            <input type="password" name="confirm-password" id="confirm-password" />
+            <p id="pass-match-error" class="error"></p>
+          </label>
+        </div>
+        <div class="button-container">
+          <button type="submit" id="submit-button">Get Started</button>
+        </div>
+        <div class="login-container">
+          <p>Already have an account? <a href="#">Log in</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
 </body>
+
 </html>

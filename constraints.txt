@@ -1,0 +1,24 @@
+first name:
+    > 3 char
+    required
+
+last name:
+    > 3 char
+    required
+
+mail
+    format aaa@bbb
+    required
+
+phone number
+    must be number
+    = 10 char
+    required
+
+pass
+    >= 8char
+    have >= 1 upper
+    have >= 1 symbol
+
+pass confirm
+    must === pass
