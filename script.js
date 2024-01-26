@@ -15,7 +15,10 @@ const passNumError = document.getElementById("pass-num-error");
 const passSpeError = document.getElementById("pass-special-error");
 const passwordConfirmInput = document.getElementById("confirm-password");
 const passMatchError = document.getElementById("pass-match-error");
-
+const q = document.querySelector(".quote");
+console.log(q)
+const qe = document.querySelector(".quotee");
+console.log(qe)
 // validity booleans
 let fVal,
   lVal,
@@ -172,3 +175,25 @@ submitButton.addEventListener("click", (e) => {
   e.preventDefault();
   console.log("you submited");
 });
+
+
+// populate quotes
+async function populate() {
+  const response = await fetch("./quotes.json");
+  const data = await response.json();
+  console.log(data);
+  let randomNumber = await getRandomNumber(data.length);  
+  populateQuoteContainer(data, randomNumber);
+
+}
+
+populate();
+
+function getRandomNumber(num) {
+  return Math.round(Math.random()*num);
+}
+
+function populateQuoteContainer(data, num) {
+  q.textContent = data[num]["quote"];
+  qe.textContent = "-" + data[num]["author"]
+}
