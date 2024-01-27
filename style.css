@@ -12,6 +12,40 @@ body {
     background-image: url("./images/body-bg.jpg");
 }
 
+@keyframes leftToRightMove{
+    0% {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.1;
+    }
+
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes topDownMove{
+    0% {
+        transform: translateY(-50%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes downUpMove{
+    0% {
+        transform: translateY(50%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
 .main-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -39,6 +73,7 @@ body {
 }
 
 .logo-container {
+    animation: 500ms leftToRightMove;
     margin: 20px;
     display: flex;
     gap: 20px;
@@ -51,12 +86,16 @@ body {
 }
 
 .quote {
+    animation: 500ms topDownMove;
     font-style: italic;
     text-align: justify;
+    padding: 10px;
 }
 
 .quotee {
+    animation: 500ms downUpMove;
     text-align: end;
+    padding: 10px;
 }
 
 .form-container {
