@@ -15,10 +15,10 @@ const passNumError = document.getElementById("pass-num-error");
 const passSpeError = document.getElementById("pass-special-error");
 const passwordConfirmInput = document.getElementById("confirm-password");
 const passMatchError = document.getElementById("pass-match-error");
+const quoteContainer = document.querySelector(".quote-container");
 const q = document.querySelector(".quote");
-console.log(q)
 const qe = document.querySelector(".quotee");
-console.log(qe)
+
 // validity booleans
 let fVal,
   lVal,
@@ -170,30 +170,38 @@ function activateSubmitButton() {
 
 check();
 activateSubmitButton();
+hideQuoteContainer(); // hide the quote container at first
 
 submitButton.addEventListener("click", (e) => {
   e.preventDefault();
   console.log("you submited");
 });
 
+function populateQuoteContainer(data) {
+  let quote = data.content;
+  let quotee = data.author;
 
-// populate quotes
-async function populate() {
-  const response = await fetch("./quotes.json");
-  const data = await response.json();
-  console.log(data);
-  let randomNumber = await getRandomNumber(data.length);  
-  populateQuoteContainer(data, randomNumber);
-
+  q.textContent = quote;
+  qe.textContent = quotee;
+  unhideQuoteContainer(); // unhide the container so the css animation can load
 }
 
-populate();
-
-function getRandomNumber(num) {
-  return Math.round(Math.random()*num);
+function hideQuoteContainer() {
+  quoteContainer.style.display = "none";
 }
 
-function populateQuoteContainer(data, num) {
-  q.textContent = data[num]["quote"];
-  qe.textContent = "-" + data[num]["author"]
+function unhideQuoteContainer() {
+  quoteContainer.style.display = "block";
 }
+
+fetch("https://api.quotable.io/random?tags=future", { mode: "cors" })
+  .then((response) => {
+    if (!response.ok) throw new Error("can't fetch the quotes");
+    return response.json();
+  })
+  .then((data) => {
+    populateQuoteContainer(data);
+  })
+  .catch((error) => {
+    console.log("Error", error);
+  });
